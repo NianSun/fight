@@ -263,15 +263,15 @@
 					//击中敌人后
 					if(target==1){
 						obj3.remove();
-						// clearInterval(timerDiren);  //敌人停止开火
-						// $('#diren img').prop('src','timg.gif');
-						// document.title="恭喜你赢了";
-						// $('#diren').css({'animation':'rr','top':B_top,'left':B_left});
-						// obj1.animate({'opacity':'0'},2000,function(){
-						// 	clearInterval(timerAll);  //不在检测
-						// 	obj1.remove();
+						 clearInterval(timerDiren);  //敌人停止开火
+						 $('#diren img').prop('src','timg.gif');
+						 document.title="恭喜你赢了";
+						 $('#diren').css({'animation':'rr','top':B_top,'left':B_left});
+						 obj1.animate({'opacity':'0'},2000,function(){
+						 	clearInterval(timerAll);  //不在检测
+						 	obj1.remove();
 							$('.defen_span').text(parseInt($('.defen_span').text())+1000);
-						// });		
+						 });		
 
 					}
 					if(target==0){
@@ -425,6 +425,18 @@
 				xiaobing();
 				$('.guanqia_span').text(parseInt($('.guanqia_span').text())+1);
 			}
+			//重新生成大boss
+//			<div id="diren"><img src="diren.png" alt=""></div>
+			
+			var oBoss='<div id="diren"><img src="diren.png" alt=""></div>'; 		//爆炸音效
+			$('.big_box').html($('.big_box').html()+oBoss);
+			
+			timerAll=setInterval(function(){
+		 	//检测  jiance('被击中者','开枪者','子弹','开枪者角色');
+				jiance($("#diren"),$("#ziji"),$("#ziji span"),1);
+
+			},jiance_fps);
+			
 			count_small++;
 		}
 //清空小兵
