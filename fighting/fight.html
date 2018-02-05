@@ -429,7 +429,8 @@
 //			<div id="diren"><img src="diren.png" alt=""></div>
 			
 			var oBoss='<div id="diren"><img src="diren.png" alt=""></div>'; 		//爆炸音效
-			$('.big_box').html($('.big_box').html()+oBoss);
+//			$('.big_box').html($('.big_box').html()+oBoss);
+			$(".big_box").append(oBoss);
 			
 			timerAll=setInterval(function(){
 		 	//检测  jiance('被击中者','开枪者','子弹','开枪者角色');
